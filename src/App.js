@@ -1,31 +1,24 @@
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NavBar from "../src/components/NavBar/index"
-import Cards from "../src/components/ItemListContainer/index"
-import imgMan from "./img/menClothes.jpg"
-import imgWoman from "./img/womenClothes.jpg"
-import oferta from "./img/oferta.jpg"
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import Home from './pages/home.jsx';
+import Products from './pages/Products';
+import ProductId from './pages/ProductId/index'
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <header className="App-header">
-        <Box sx={{ flexGrow: 1, marginTop:'5%', marginLeft:'10%'}}>
-          <Grid container spacing={2} >
-            <Grid  xs={12} lg={4} >
-            <Cards title={"Hombre"} text={"esta es la ropa de hombre"} image={imgMan} />
-            </Grid>
-            <Grid  xs={12} lg={4}>
-            <Cards title={"Mujeres"} text={"esta es la ropa de mujer"} image={imgWoman} />
-            </Grid>
-            <Grid  xs={12} lg={4}>
-            <Cards title={"Liquidación"} text={"esta es la ropa de liquidación"} image={oferta} />
-            </Grid>
-          </Grid>
-        </Box>
-      </header>
+      <BrowserRouter>
+        <NavBar />
+        <main className='pt-[100px]'>
+          <Routes>
+            <Route path='/'element={<Home/>} />
+            {/* <Route path='/products'  element={<PageEvents />} /> */}
+            <Route path='/products'  element={<Products/>} /> 
+            <Route path='/products/:id'  element={<ProductId/>}  />   
+          </Routes>
+        </main>
+      </BrowserRouter>
     </div>
   );
 }
