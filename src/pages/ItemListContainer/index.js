@@ -38,15 +38,14 @@ const ItemListContainer = () => {
 
   return (
     <>
-      <h1 className='text-center mb-5 text-4xl font-extrabold text-transparent
-             bg-clip-text bg-gradient-to-r from-indigo-700 to-[#a64aff]'
+      <h1 className='text-center mb-5 text-4xl font-extrabold bg-white text-black'
       >
         ADUDIS
       </h1>
       <div className='mb-10 m-auto'>
         <Filters />
         <form onSubmit={handleFilterProducts} className='max-w-md flex mt-5'>
-          <input className='px-3 py-2 bg-white border shadow-sm border-indigo-700 placeholder-slate-400 focus:outline-none block w-full rounded-tl-md rounded-bl-md sm:text-sm focus:ring-1' placeholder='Search for title' type='text' name='search' value={search} onChange={(event) => setSearch(event.target.value)} />
+          <input className='px-3 py-2 bg-white border shadow-sm border-indigo-700 placeholder-slate-400 focus:outline-none block w-full rounded-tl-md rounded-bl-md sm:text-sm focus:ring-1' placeholder='Buscar producto' type='text' name='search' value={search} onChange={(event) => setSearch(event.target.value)} />
           <button className='bg-indigo-700 text-white rounded-tr-md rounded-br-md px-2'>Buscar</button>
         </form>
       </div>

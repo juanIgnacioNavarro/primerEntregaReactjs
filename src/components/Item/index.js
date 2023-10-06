@@ -28,7 +28,7 @@ const Item = memo(({
      group-hover:bottom-0 group-hover:opacity-100 duration-200'
       >
         <button className=' bg-indigo-700 px-3 py-3 rounded-bl-md rounded-mr-md text-white w-full flex gap-2 justify-center items-center'>
-          View detail <CallMissedOutgoingIcon width={20} height={20} />
+          Ver producto <CallMissedOutgoingIcon width={20} height={20} />
         </button>
       </Link>
     </div>

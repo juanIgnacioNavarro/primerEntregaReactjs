@@ -17,9 +17,9 @@ const ItemList = memo(({ products, loading }) => {
     return (
       <div className='text-center text-lg flex  items-center flex-col py-8 text-[#3f3d56]'>
         {/* <EmptyIcon width={250} height={200} className='mb-10' /> */}
-        <h3 className='mb-2 font-bold max-w-md'>No items with the filters applied, please perform another search</h3>
+        <h3 className='mb-2 font-bold max-w-md'>No existen items para esta sección</h3>
         <Link to='/' className='border border-indigo-700 text-sm text-indigo-700 rounded-md px-2 py-0.5'>
-          Go to home
+          Volver al listado
         </Link>
       </div>
     )
