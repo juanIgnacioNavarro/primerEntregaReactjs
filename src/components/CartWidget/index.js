@@ -1,18 +1,17 @@
-import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
+import { useCart } from '../../context/CartProvider'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Badge from '@mui/material/Badge';
-import Box from '@mui/material/Box';
+import { Link } from 'react-router-dom'
 
-export default function IconButtons() {
+const CartWidget = () => {
+  const { items } = useCart()
   return (
-    <Stack direction="row" spacing={1}>
-      <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">        
-                <ShoppingCartIcon />
-            </IconButton>
-          </Box>
-    </Stack>
-  );
+    <Link to='/cart' className='flex w-[40px] h-[40px] relative rounded-full bg-indigo-100 items-center justify-center'>
+      <ShoppingCartIcon />
+      <span className='absolute top-[-5px] right-[-5px] text-[12px] z-10 bg-indigo-700 rounded-full w-5 h-5 p-2 flex justify-center items-center text-white'>
+        {items.length}
+      </span>
+    </Link>
+  )
 }
+
+export default CartWidget

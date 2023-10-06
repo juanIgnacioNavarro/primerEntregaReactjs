@@ -1,26 +1,48 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import NavBar from "../src/components/NavBar/index"
-import * as React from 'react';
-import Home from './pages/home.jsx';
-import Products from './pages/Products';
-import ProductId from './pages/ProductId/index'
+import ItemListContainer from './pages/ItemListContainer'
+import NavBar from './components/NavBar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Cart from './pages/Cart'
+import ItemDetailContainer from './pages/itemDetailContainer'
+import CartProvider from './context/CartProvider'
+import { ToastContainer } from 'react-toastify'
+import PrivateRoute from './route/PrivateRoute'
+import Checkout from './pages/Checkout'
+import MyOrders from './pages/MyOrders'
+import AddProduct from './pages/Admin/AddProduct'
+import { useEffect } from 'react'
+
 function App() {
+
   return (
-    <div className="App">
-      <BrowserRouter>
-        <NavBar />
-        <main className='pt-[100px]'>
-          <Routes>
-            <Route path='/'element={<Home/>} />
-            {/* <Route path='/products'  element={<PageEvents />} /> */}
-            <Route path='/products'  element={<Products/>} /> 
-            <Route path='/products/:id'  element={<ProductId/>}  />   
-          </Routes>
-        </main>
-      </BrowserRouter>
-    </div>
-  );
+
+    <><ToastContainer theme='colored' /><CartProvider>
+      <main id='rootApp' >
+        <div id='theme'>
+          <BrowserRouter>
+            <NavBar />
+            <main className='max-w-5xl mx-auto pt-[100px]'>
+              <Routes>
+                <Route path='/' element={<ItemListContainer />} />
+                <Route path='category/:categoryId' element={<ItemListContainer />} />
+                <Route path='item/:id' element={<ItemDetailContainer />} />
+                <Route
+                  path='orders' element={<PrivateRoute>
+                    <MyOrders />
+                  </PrivateRoute>} />
+                <Route
+                  path='checkout' element={(
+                    <PrivateRoute>
+                      <Checkout />
+                    </PrivateRoute>)} />
+                <Route path='cart' element={(<Cart />)} />
+                <Route path='admin/add-product' element={<AddProduct />} />
+              </Routes>
+            </main>
+          </BrowserRouter>
+        </div>
+      </main>
+    </CartProvider></>
+  )
 }
 
-export default App;
+export default App
