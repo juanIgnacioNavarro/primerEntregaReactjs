@@ -1,31 +1,6 @@
 import { useState } from "react"
 
-/**
- 
-const obj= {
-  age: 22
-}
-
-const EXTERNAL = 'password'
-
-obj.age = 66
-obj[EXTERNAL] = 'diego'
-
-console.log({
-  ...obj,
-  [EXTERNAL]: 'diego'
-})
-
- */
-
-//El form recibe el evento de onLogin
 const Form = ({ onLogin }) => {
-
-    //    const [email, setEmail] = useState('')
-    //    const [password, setPassword] = useState('')
-    //    const [name, setName] = useState('')
-    //    const [lastName, setLastName] = useState('')
-    //    const [age, setAge] = useState('')
 
     const [form, setForm] = useState({
         email: '',
@@ -36,31 +11,15 @@ const Form = ({ onLogin }) => {
     const handleOnChange = (event) => {
         const value = event.target.value
         const name = event.target.name
-        //De esta manera podemos modificar el estado de forma dinamica
         setForm(prev => ({
             ...prev,
             [name]: value
         }))
 
-
-        //   if(name === 'name') return setName(value)
-        //   if(name === 'email') return setEmail(value)
-        //   if(name === 'password') return setPassword(value)
-        //   if(name === 'lastName') return setLastName(value)
-        //   if(name === 'age') return setAge(value)
-
-
-        // const {name, value} = event.target
-
     }
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
-        //lo que tenga que hacer
-        //validaciones
-        //darle feedback al usuario
-
-        //aqui ejecutamos el metodo de onLogin
         onLogin(form)
     }
 
