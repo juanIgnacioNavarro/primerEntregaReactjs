@@ -1,4 +1,4 @@
-import { getCategories } from "../mocks"
+import { getCategories } from '../firebaseConfig/categories'
 import { useState, useCallback, useMemo } from 'react'
 
 export const useCategories = () => {
@@ -14,4 +14,4 @@ export const useCategories = () => {
     categories,
     getCategories: handleGetCategories
   }
-} 
+}

@@ -20,7 +20,7 @@ const MyOrders = () => {
       <h1 className='text-center mb-5 text-4xl font-extrabold text-transparent
   bg-clip-text bg-gradient-to-r from-indigo-700 to-[#a64aff]'
       >
-        My orders
+        Id's de compras
       </h1>
        <MyOrderList loading={loading} orders={orders} /> 
     </>

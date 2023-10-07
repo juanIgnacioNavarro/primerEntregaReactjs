@@ -1,12 +1,5 @@
-// Paso 1 importar el context
 import { createContext, useContext, useEffect, useState } from 'react'
 import { Storage } from '../../utils/storage'
-
-// TODO: CartContext ✅
-// TODO: Stado donde vamos a almacenar nuestro items
-// TODO: Debemos crear una funcion que me permita agragegar un item
-// TODO: Una funcion que me permita remover 1 item
-// TODO: Una funcion que me permita limpiar el carrito
 
 const CartContext = createContext()
 
@@ -41,7 +34,6 @@ const CartProvider = ({ children }) => {
   )
 }
 
-// Extraemos la logica de implementación
 export const useCart = () => useContext(CartContext)
 
 export default CartProvider
